@@ -24,6 +24,8 @@ public:
     bool hasEdge(std::size_t from, std::size_t to) const;
     Edge &getEdge(std::size_t from, std::size_t to);
     
+    std::vector<std::size_t> getNeighbors(std::size_t idx) const;
+    
     std::string toString() const;
 };
 

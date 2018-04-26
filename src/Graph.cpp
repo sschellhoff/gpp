@@ -42,6 +42,15 @@ Edge &Graph::getEdge(std::size_t from, std::size_t to) {
     return (*std::find_if(candidates.begin(), candidates.end(), [from, to](const Edge &edge) { return edge.start() == from && edge.end() == to; } ));
 }
 
+std::vector<std::size_t> Graph::getNeighbors(std::size_t idx) const {
+    std::vector<std::size_t> result;
+    auto &adjacent_edges = edges[idx];
+    for(auto &edge : adjacent_edges) {
+        result.push_back(edge.end());
+    }
+    return result;
+}
+
 std::string Graph::toString() const {
     std::stringstream sstream;
     

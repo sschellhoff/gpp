@@ -22,6 +22,13 @@ void Graph::addEdge(std::size_t from, std::size_t to) {
     }
 }
 
+void Graph::addEdge(Edge &&edge) {
+    if(!is_digraph) {
+        edges[edge.end()].push_back(edge.flipped());
+    }
+    edges[edge.start()].push_back(std::move(edge));
+}
+
 bool Graph::hasEdge(std::size_t from, std::size_t to) const {
     auto &candidates = edges[from];
     return std::find_if(candidates.begin(), candidates.end(), [from, to](const Edge &edge) { return edge.start() == from && edge.end() == to; } ) != candidates.end();

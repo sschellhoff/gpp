@@ -20,6 +20,7 @@ public:
     Node &getNode(std::size_t idx);
 
     void addEdge(std::size_t from, std::size_t to);
+    void addEdge(Edge &&edge);
     bool hasEdge(std::size_t from, std::size_t to) const;
     Edge &getEdge(std::size_t from, std::size_t to);
     

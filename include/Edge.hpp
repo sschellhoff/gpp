@@ -42,6 +42,14 @@ public:
     void removeInfo() {
         info.erase(std::remove(info.begin(), info.end(), typeid(T)), info.end());
     }
+    
+    Edge flipped() const {
+        auto flipped_edge = Edge{to, from};
+        for(auto &entry : info) {
+            flipped_edge.info[entry.first] = entry.second->clone();
+        }
+        return flipped_edge;
+    }
 };
 
 }

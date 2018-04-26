@@ -35,6 +35,9 @@ bool Graph::hasEdge(std::size_t from, std::size_t to) const {
 }
 
 Edge &Graph::getEdge(std::size_t from, std::size_t to) {
+    if(!is_digraph && from > to) {
+        std::swap(from, to);
+    }
     auto &candidates = edges[from];
     return (*std::find_if(candidates.begin(), candidates.end(), [from, to](const Edge &edge) { return edge.start() == from && edge.end() == to; } ));
 }

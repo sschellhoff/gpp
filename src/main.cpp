@@ -1,5 +1,7 @@
 #include "Graph.hpp"
 
+#include <iostream>
+
 int main(int argc, char* argv[]) {
     gpp::Graph g{6};
     g.addEdge(0, 1);
@@ -12,5 +14,8 @@ int main(int argc, char* argv[]) {
     g.addEdge(4, 3);
     g.addEdge(4, 5);
     g.addEdge(5, 5);
+    
+    std::cout << g.toString();
+    
     return 0;
 }

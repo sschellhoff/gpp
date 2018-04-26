@@ -3,6 +3,8 @@
 namespace gpp {
 
 class NodeInformation {
+public:
+    virtual ~NodeInformation() {}
 };
 
 }

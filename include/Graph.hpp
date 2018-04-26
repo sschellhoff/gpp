@@ -2,6 +2,8 @@
 
 #include <vector>
 #include "Node.hpp"
+#include "Edge.hpp"
+#include <string>
 
 namespace gpp {
 
@@ -9,7 +11,7 @@ class Graph {
 private:
     bool is_digraph;
     std::vector<Node> nodes;
-    std::vector<std::vector<std::size_t>> edges;
+    std::vector<std::vector<Edge>> edges;
 public:
     Graph(std::size_t size);
 
@@ -19,6 +21,9 @@ public:
 
     void addEdge(std::size_t from, std::size_t to);
     bool hasEdge(std::size_t from, std::size_t to) const;
+    Edge &getEdge(std::size_t from, std::size_t to);
+    
+    std::string toString() const;
 };
 
 }

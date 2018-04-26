@@ -22,8 +22,8 @@ public:
         return info.find(typeid(T)) != info.end();
     }
     template <typename T>
-    T getInfo() {
-        return info[typeid(T)];
+    T &getInfo() {
+        return *static_cast<T*>(info[typeid(T)].get());
     }
     template <typename T>
     void removeInfo() {
